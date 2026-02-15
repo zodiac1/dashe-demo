@@ -1,0 +1,13 @@
+FastAPI
+uvicorn
+pydantic
+sqlalchemy
+databases
+aiohttp
+psycopg2-binary
+asyncpg
+PyJWT
+python-multipart
+bcrypt
+python-dotenv
+Faker
