@@ -1,0 +1,11 @@
+{
+  "name": "dashe-demo",
+  "private": true,
+  "workspaces": [
+    "backend/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^9.0.4"
+  }
+}
