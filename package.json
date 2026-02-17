@@ -4,7 +4,9 @@
   "workspaces": [
     "backend/*"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@react-native-picker/picker": "^2.11.4"
+  },
   "devDependencies": {
     "lerna": "^9.0.4"
   }
