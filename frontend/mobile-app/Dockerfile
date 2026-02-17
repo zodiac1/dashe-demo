@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 8081
 
 # Install Expo CLI globally
-RUN npm install -g expo-cli
+RUN npm install -g expo
 
 # Start Expo in web mode by default (can be overridden)
 CMD ["expo", "start", "--tunnel", "--web"]
