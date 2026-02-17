@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 8081
 
 # Install Expo CLI globally
-RUN npm install -g expo
+RUN npm install -g expo @expo/ngrok@^4.1.0
 
 # Start Expo in web mode by default (can be overridden)
 CMD ["expo", "start", "--tunnel", "--web"]
