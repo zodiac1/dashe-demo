@@ -43,8 +43,9 @@ services:
       - api
   expo:
     build:
-      context: .
-      dockerfile: frontend/mobile-app/Dockerfile
+      context: ./frontend/mobile-app
+      dockerfile: Dockerfile
+    container_name: dashe-demo-mobile-app
     ports:
       - "8081:8081"
       - "19000:19000"
