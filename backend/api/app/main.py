@@ -1,18 +1,30 @@
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from api.auth import router as auth_router
 from api.routes import router as api_router
 from dotenv import load_dotenv
 from db import database
 
+from faker import Faker
+
 import bcrypt
 import os
 import asyncio
-from faker import Faker
-
-load_dotenv()
 
 app = FastAPI()
+
+# Load environment variables
+load_dotenv()
+
+# Allow CORS for frontend dev
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[os.getenv(f"ALLOW_ORIGINS1"), os.getenv(f"ALLOW_ORIGINS2"), os.getenv(f"ALLOW_ORIGINS3"), os.getenv(f"ALLOW_ORIGINS4")],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 app.include_router(auth_router)
 app.include_router(api_router)

@@ -56,9 +56,10 @@ async def get_property_sales(
             raise HTTPException(status_code=400, detail="Invalid end_date format. Use YYYY-MM-DD.")
     if current_user.get("role") == "admin":
         query = """
-            SELECT p.id as property_id, ps.userid, p.latitude, p.longitude, p.city, ps.sold_for, ps.sold_date
+            SELECT p.id as property_id, ps.userid, p.latitude, p.longitude, p.city, p.address1, ps.sold_for, ps.sold_date, u.username
             FROM property_sales ps
             JOIN properties p ON ps.property_id = p.id
+            JOIN users u ON ps.userid = u.userid
         """
         if filters:
             query += " WHERE " + " AND ".join(filters)
@@ -76,9 +77,10 @@ async def get_property_sales(
             raise HTTPException(status_code=404, detail="User not found")
         userid = user_row["userid"]
         query = """
-            SELECT p.id as property_id, ps.userid, p.latitude, p.longitude, p.city, ps.sold_for, ps.sold_date
+            SELECT p.id as property_id, ps.userid, p.latitude, p.longitude, p.city, p.address1, ps.sold_for, ps.sold_date, u.username
             FROM property_sales ps
             JOIN properties p ON ps.property_id = p.id
+            JOIN users u ON ps.userid = u.userid
             WHERE ps.userid = :userid
         """
         if filters:
@@ -95,6 +97,8 @@ async def get_property_sales(
         {
             "property_id": row["property_id"],
             "userid": row["userid"],
+            "username": row["username"],
+            "address1": row["address1"],
             "latitude": row["latitude"],
             "longitude": row["longitude"],
             "city": row["city"],
@@ -103,6 +107,69 @@ async def get_property_sales(
         }
         for row in rows
     ]
+
+
+@router.get("/unsold-properties", tags=["properties"])
+async def get_unsold_properties(current_user: dict = Depends(get_current_user)):
+    """
+    Returns property_id, address1, address2, and city for all unsold properties.
+    """
+    query = """
+        SELECT p.id as property_id, p.address1, p.address2, p.city
+        FROM properties p
+        LEFT JOIN property_sales ps ON p.id = ps.property_id
+        WHERE ps.property_id IS NULL
+    """
+    rows = await database.fetch_all(query)
+    return [
+        {
+            "property_id": row["property_id"],
+            "address1": row["address1"],
+            "address2": row["address2"],
+            "city": row["city"]
+        }
+        for row in rows
+    ]
+
+
+from fastapi import Body
+
+from pydantic import BaseModel
+from datetime import date
+from uuid import UUID
+
+class PropertySaleIn(BaseModel):
+    property_id: UUID
+    userid: UUID
+    sold_date: date
+    sold_for: float
+
+@router.post("/property-sales", tags=["property_sales"])
+async def register_property_sale(
+    sale: PropertySaleIn,
+    current_user: dict = Depends(get_current_user)
+):
+    # Check if property is unsold
+    check_query = """
+        SELECT p.id FROM properties p
+        LEFT JOIN property_sales ps ON p.id = ps.property_id
+        WHERE p.id = :property_id AND ps.property_id IS NULL
+    """
+    property_row = await database.fetch_one(check_query, {"property_id": sale.property_id})
+    if not property_row:
+        raise HTTPException(status_code=400, detail="Property is already sold or does not exist.")
+    # Insert sale record
+    insert_query = """
+        INSERT INTO property_sales (property_id, userid, sold_date, sold_for)
+        VALUES (:property_id, :userid, :sold_date, :sold_for)
+    """
+    await database.execute(insert_query, {
+        "property_id": sale.property_id,
+        "userid": sale.userid,
+        "sold_date": sale.sold_date,
+        "sold_for": sale.sold_for
+    })
+    return {"message": "Property sale registered successfully."}
 
 router.include_router(auth_router)
 async def get_users():
