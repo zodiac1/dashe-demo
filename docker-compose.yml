@@ -42,7 +42,9 @@ services:
     depends_on:
       - api
   expo:
-    build: .
+    build:
+      context: .
+      dockerfile: frontend/mobile-app/Dockerfile
     ports:
       - "8081:8081"
       - "19000:19000"
