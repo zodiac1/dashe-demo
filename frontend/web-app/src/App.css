@@ -1,0 +1,226 @@
+/* Login page styles */
+
+/* Dashe.ai Inspired Theme */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+
+:root {
+    --_colours---main-background: #121c34;
+    --background: var(--_colours---main-background);
+    --surface:white;
+    --_colours---white: white;
+    --_colours---core: #00d4d7;
+    --_colours---module: #25405b;
+    --_colours---highlight: #fffe03;
+    --_colours---transparent: #fff0;
+    --flowui-component-library--gray-900: #160042;
+    --flowui-component-library--white: white;
+    --flowui-component-library--primary-base: #642eff;
+    --flowui-component-library--gray-200: #f3f5fb;
+    --flowui-component-library--grey-600: #393b6a;
+    --_colours---module-highlight: #19243c;
+    --flowui-component-library--gray-700: #282556;
+    --elements-webflow-library--neutral--800: #211f54;
+    --elements-webflow-library--neutral--600: #6e7191;
+    --elements-webflow-library--neutral--300: #eff0f6;
+    --elements-webflow-library--accent--primary-1: #4a3aff;
+    --color: white;
+    --flowui-component-library--gray-500: #6b7094;
+    --elements-webflow-library--neutral--100: white;
+    --elements-webflow-library--neutral--400: #dcddeb;
+    --elements-webflow-library--general--shadow-01: #14142b0f;
+    --untitled-ui--gray100: #f2f4f7;
+    --elements-webflow-library--secondary--color-2: #f2f1ff;
+    --elements-webflow-library--secondary--color-1: #281ca5;
+    --flowui-component-library--grey-300: #e4e6f1;
+    --flowui-component-library--gray-400: #b6b9ce;
+    --elements-webflow-library--neutral--200: #f7f7fc;
+    --elements-webflow-library--general--shadow-02: #14142b14;
+    --elements-webflow-library--general--shadow-03: #14142b1a;
+    --gray-100: #f7f9fd;
+    --untitled-ui--gray300: #d0d5dd;
+    --gray200: #eaecf0;
+    --_colours---dash-3-highlight: #8000ff;
+    --_colours---dash3-core: #f0f;
+    --_colours---dash3-secondary: #ff0080;
+    --_colours---secondary: #009d97;
+    --flowui-component-library--primary-lighter: #f7f5ff;
+}
+
+#root {
+  margin: 0 !important;
+}
+
+/* Yellow Button Style (Dashe.ai inspired) */
+.yellow-button {
+  clear: none;
+  background-color: var(--_colours---highlight);
+  color: var(--_colours---main-background);
+  border-color: var(--_colours---main-background);
+  text-align: center;
+  transform-style: preserve-3d;
+  border-radius: 48px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 38px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: none;
+  transition: background-color .3s, transform .3s, color .3s;
+  display: inline-block;
+  position: static;
+  left: auto;
+  right: auto;
+}
+
+.yellow-button:hover, .menu-button:hover {
+  transform: translate3d(0, -3px, .01px);
+}
+
+.menu-button {
+  clear: none;
+  background-color: var( --_colours---core);
+  border-color: var(--_colours---main-background);
+  color: var(--_colours---main-background);
+  text-align: center;
+  transform-style: preserve-3d;
+  border-radius: 48px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 38px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: none;
+  transition: background-color .3s, transform .3s, color .3s;
+  display: inline-block;
+  position: static;
+  left: auto;
+  right: auto;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: linear-gradient(120deg, rgb(35, 37, 38) 0%, rgb(65, 67, 69) 100%);
+  color: var(--text);
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+  transition: background 0.3s;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+.surface {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+/* Enhanced Login page styles */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+}
+
+.login-form {
+  background: var(--surface);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 320px;
+  border: 1px solid var(--border);
+  align-items: stretch;
+}
+
+.login-form h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+}
+
+.login-form input {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.2s, box-shadow 0.2s;
+  color: var(--text);
+}
+.login-form input:focus {
+  outline: none;
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 0 0 2px #dbeafe;
+}
+
+.login-form .error {
+  color: #e11d48;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.98rem;
+  margin-top: -0.5rem;
+  font-weight: 500;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

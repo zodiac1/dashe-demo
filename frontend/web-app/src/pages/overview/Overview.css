@@ -1,0 +1,342 @@
+/* --- LoginPage (matches OverviewPage style) --- */
+.login-card {
+    max-width: 420px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+.login-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 1.08rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-bottom: 0.2rem;
+}
+.login-input {
+    width: 320px;
+    max-width: 100%;
+    background: #1e2a38;
+    color: #7ed6df;
+    border: 1.5px solid #7ed6df;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.55rem 1.2rem;
+    box-shadow: 0 1px 4px #0f2027;
+    font-size: 1.08rem;
+    margin-top: 2px;
+}
+.login-input[type="password"] {
+    color: #f6e58d;
+    border-color: #f6e58d;
+}
+.login-btn {
+    width: 90px;
+    margin: 0.7rem auto 0 auto;
+    display: block;
+    background: #7ed6df;
+    color: #0f2027;
+    border: none;
+    border-radius: 14px;
+    padding: 0.7rem 0;
+    font-weight: 700;
+    font-size: 1.08rem;
+    box-shadow: 0 1px 8px #0f2027;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.login-error {
+    margin-top: 1.1rem;
+}
+/* --- OverviewPage Modern Glassmorphism Styles --- */
+.overview-page {
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.overview-card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+    min-width: 340px;
+    width: 100%;
+    max-width: 950px;
+    border: 1.5px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.overview-title {
+    margin: 0;
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 16px #2c5364;
+}
+
+.overview-date-form-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.overview-date-form {
+    margin: 0 auto;
+    width: 100%;
+    background: rgba(255,255,255,0.10);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44,83,100,0.10);
+    padding: 1.1rem 1.7rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    border: 1.5px solid #2c5364;
+}
+.overview-date-label {
+    font-size: 1.08rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.overview-date-label-start span {
+    color: #7ed6df;
+}
+.overview-date-label-end span {
+    color: #f6e58d;
+}
+.overview-date-input {
+    background: #1e2a38;
+    color: #fff;
+    border: 1.5px solid #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.45rem 0.7rem;
+    box-shadow: 0 1px 4px #0f2027;
+}
+.overview-date-input-start {
+    color: #7ed6df;
+    border-color: #7ed6df;
+}
+.overview-date-input-end {
+    color: #f6e58d;
+    border-color: #f6e58d;
+}
+.overview-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.13);
+    margin: 0.7rem 0 0.7rem 0;
+    border-radius: 2px;
+}
+.overview-error {
+    color: #ff7675;
+    background: rgba(255, 118, 117, 0.08);
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-align: center;
+    border: 1.5px solid #ff7675;
+    font-size: 1.08rem;
+}
+.overview-loading {
+    color: #7ed6df;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 1.08rem;
+}
+.overview-timeline-section {
+    margin-bottom: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.overview-timeline-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    width: 100%;
+    justify-content: center;
+}
+.overview-timeline-play {
+    background: #1e2a38;
+    color: #7ed6df;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 1px 8px #0f2027;
+    transition: background 0.2s, color 0.2s;
+}
+.overview-timeline-play.playing {
+    background: #7ed6df;
+    color: #0f2027;
+}
+.overview-timeline-slider {
+    flex: 1;
+    accent-color: #7ed6df;
+    height: 6px;
+    border-radius: 3px;
+    background: #1e2a38;
+    max-width: 320px;
+    box-shadow: 0 1px 4px #0f2027;
+}
+.overview-timeline-count {
+    min-width: 48px;
+    text-align: right;
+    color: #7ed6df;
+    font-weight: 700;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+}
+.overview-timeline-reset {
+    background: #1e2a38;
+    color: #f6e58d;
+    border: 1.5px solid #f6e58d;
+    border-radius: 14px;
+    padding: 0.38rem 1.1rem;
+    font-weight: 700;
+    margin-left: 0.7rem;
+    cursor: pointer;
+    font-size: 1.08rem;
+    box-shadow: 0 1px 8px #0f2027;
+    transition: background 0.2s, color 0.2s;
+}
+.overview-timeline-reset:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.overview-timeline-date {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 8px #2c5364;
+}
+.overview-timeline-date span {
+    color: #f6e58d;
+}
+.overview-map {
+    height: 540px;
+    width: 100%;
+    min-height: 260px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px #0f2027;
+    margin: 0 auto;
+    background: rgba(30,42,56,0.98);
+    border: 2px solid #7ed6df;
+}
+/* Responsive styles for date form */
+.responsive-date-form {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+}
+.responsive-date-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 200px;
+    width: 260px;
+    flex: 0 0 260px;
+    gap: 0.7rem;
+    font-weight: 500;
+    justify-content: flex-start;
+}
+.responsive-date-input {
+    border-radius: 24px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    width: 160px;
+    min-width: 140px;
+    max-width: 220px;
+}
+@media (max-width: 600px) {
+    .responsive-date-form {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .responsive-date-label {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        flex: 1 1 100%;
+        gap: 0.1rem;
+        text-align: center;
+        width: 100%;
+    }
+    .responsive-date-input {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+    }
+}
+#root {
+    padding: 0 !important;
+}
+
+div.leaflet-container {
+    margin-left: 2rem;
+}
+
+form {
+    margin: 2rem;
+}
+
+input {
+    margin-left: 1rem;
+}
