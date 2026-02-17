@@ -15,7 +15,8 @@ export default function SaleEntryScreen() {
     const fetchProperties = async () => {
       setLoadingProperties(true);
       try {
-        const res = await fetch(`${process.env.VITE_API_BASE_URL}/unsold-properties`, {
+        const apiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL;
+        const res = await fetch(`${apiBaseUrl}/unsold-properties`, {
           headers: accessToken ? { 'Authorization': `Bearer ${accessToken}` } : {},
         });
         const data = await res.json();
@@ -44,7 +45,8 @@ export default function SaleEntryScreen() {
       return;
     }
     try {
-      const response = await fetch(`${process.env.VITE_API_BASE_URL}/property-sales`, {
+      const apiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL;
+      const response = await fetch(`${apiBaseUrl}/property-sales`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

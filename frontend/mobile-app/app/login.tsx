@@ -19,7 +19,9 @@ export default function Login() {
       const formBody = new URLSearchParams();
       formBody.append('username', username);
       formBody.append('password', password);
-      const response = await fetch(`${process.env.VITE_API_BASE_URL}/login`, {
+      const apiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL;
+      
+      const response = await fetch(`${apiBaseUrl}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formBody.toString(),
@@ -27,14 +29,13 @@ export default function Login() {
       let data;
       try {
         data = await response.json();
-      } catch (jsonErr) {
-        const text = await response.text();
-        setError('Server error: ' + text);
+      } catch (jsonErr: any) {
+        setError('Server error');
         return;
       }
       
       if (!response.ok) {
-        setError('Server error: ' + JSON.stringify(data));
+        setError('Server error');
         return;
       }
       if (data.access_token && data.userid) {
@@ -42,7 +43,7 @@ export default function Login() {
         // Navigate to sale entry screen using Expo Router
         router.replace('/SaleEntryScreen');
       } else {
-        setError(data.message || 'Invalid credentials');
+        setError('Invalid credentials');
       }
     } catch (err: any) {
       setError('Login failed. Please try again.');
